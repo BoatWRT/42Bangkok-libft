@@ -11,13 +11,13 @@
 /* ************************************************************************** */
 
 //string character
-/*return a pointer to the first occurence 
+/*return a pointer to the first occurence
 of the character c in the string s*/
 #include "libft.h"
 
 char	*ft_strchr(const char *str, int c)
 {
-	while (*str != '\0')
+	while (*str != '\0' || (char)c == '\0')
 	{
 		if (*str == (char)c)
 			return ((char *)str);
