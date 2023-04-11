@@ -10,17 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*used to copy a block of memory from one location to another.
+It is similar to the memcpy() function
+ but with an added feature to handle overlapping memory regions.*/
 #include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t	i;
+	int	i;
 
 	if (!dest || !src)
 		return (NULL);
 	if (src < dest)
 	{
-		i = n - 1;
+		i = (int)n - 1;
 		while (i > 0)
 		{
 			((unsigned char *)dest)[i] = ((const unsigned char *)src)[i];
