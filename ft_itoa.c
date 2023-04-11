@@ -52,7 +52,7 @@ char	*ft_itoa(int n)
 	size_t	length;
 
 	is_neg = (n < 0);
-	str = ft_calloc(11 + is_neg, sizeof(*str));
+	str = ft_calloc(12 + is_neg, sizeof(*str));
 	if (!str)
 		return (NULL);
 	if (n == 0)
