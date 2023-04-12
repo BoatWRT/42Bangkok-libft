@@ -23,7 +23,7 @@ void	*ft_calloc(size_t count, size_t size)
 	size = 1;
 	}
 	if (SIZE_MAX / count < size)
-		return NULL;
+		return (NULL);
 	ptr = malloc(count * size);
 	if (ptr)
 		ft_bzero(ptr, count * size);
