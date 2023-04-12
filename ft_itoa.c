@@ -60,7 +60,7 @@ char	*ft_itoa(int n)
 	length = 0;
 	while (n != 0)
 	{
-		str[length++] = ft_abs(n % 10) + '0';
+		str[length++] = '0' + ft_abs(n % 10);
 		n = (n / 10);
 	}
 	if (is_neg)
