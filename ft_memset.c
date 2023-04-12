@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*The memset() function fills the first n bytes of the memory 
+/*The memset() function fills the first n bytes of the memory
  area pointed to by s with the constant byte c.*/
 #include "libft.h"
 

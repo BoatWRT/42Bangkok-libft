@@ -20,8 +20,6 @@ void	ft_bzero(void *str, size_t num)
 	size_t	i;
 
 	i = 0;
-	if (!str)
-		return ;
 	while (i < num)
 	{
 		((unsigned char *)str)[i] = 0;
