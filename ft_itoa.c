@@ -20,51 +20,46 @@ Negative numbers must be handled.*/
 
 #include "libft.h"
 
-static int	ft_abs(int nbr)
+size_t	check_len(int n)
 {
-	if (nbr < 0)
-		return (-nbr);
-	else
-		return (nbr);
-}
+	size_t	len;
 
-static void	ft_strrev(char *str)
-{
-	size_t	length;
-	size_t	i;
-	char	tmp;
-
-	length = ft_strlen(str);
-	i = 0;
-	while (i < length / 2)
+	len = 0;
+	if (n <= 0)
+		len = 1;
+	while (n != 0)
 	{
-		tmp = str[i];
-		str[i] = str[length - i - 1];
-		str[length - i - 1] = tmp;
-		i++;
+		n = n / 10;
+		len++;
 	}
+	return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	int		is_neg;
-	size_t	length;
+	size_t	len;
+	char	*ptr;
+	long	numb;
 
-	is_neg = (n < 0);
-	str = ft_calloc(11 + is_neg, sizeof(*str));
-	if (!str)
+	len = check_len(n);
+	ptr = (char *)malloc(sizeof(char) * len + 1);
+	if (ptr == NULL)
 		return (NULL);
+	ptr[len] = '\0';
+	numb = (long)n;
 	if (n == 0)
-		str[0] = '0';
-	length = 0;
-	while (n != 0)
+		ptr[0] = '0';
+	numb = (long)n;
+	if (numb < 0)
 	{
-		str[length++] = '0' + ft_abs(n % 10);
-		n = (n / 10);
+		ptr[0] = '-';
+		numb = numb * -1;
 	}
-	if (is_neg)
-		str[length] = '-';
-	ft_strrev(str);
-	return (str);
+	while (numb > 0)
+	{
+		len--;
+		ptr[len] = numb % 10 + 48;
+		numb = numb / 10;
+	}
+	return (ptr);
 }
