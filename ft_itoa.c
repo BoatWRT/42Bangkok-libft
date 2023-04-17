@@ -20,7 +20,7 @@ Negative numbers must be handled.*/
 
 #include "libft.h"
 
-size_t	check_len(int n)
+size_t	ft_intlen(int n)
 {
 	size_t	len;
 
@@ -38,28 +38,27 @@ size_t	check_len(int n)
 char	*ft_itoa(int n)
 {
 	size_t	len;
-	char	*ptr;
-	long	numb;
+	char	*str;
+	long	num;
 
-	len = check_len(n);
-	ptr = (char *)malloc(sizeof(char) * len + 1);
-	if (ptr == NULL)
+	len = ft_intlen(n);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (str == NULL)
 		return (NULL);
-	ptr[len] = '\0';
-	numb = (long)n;
+	str[len] = '\0';
+	num = (long)n;
 	if (n == 0)
-		ptr[0] = '0';
-	numb = (long)n;
-	if (numb < 0)
+		str[0] = '0';
+	if (num < 0)
 	{
-		ptr[0] = '-';
-		numb = numb * -1;
+		str[0] = '-';
+		num = -num;
 	}
-	while (numb > 0)
+	while (num > 0)
 	{
 		len--;
-		ptr[len] = numb % 10 + 48;
-		numb = numb / 10;
+		str[len] = num % 10 + '0';
+		num = num / 10;
 	}
-	return (ptr);
+	return (str);
 }
